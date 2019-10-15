@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>Setting up a Virtual Lab with Virtualbox :: Hello Friend — A simple theme for Hugo</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="Setting up a Virtual Lab with Virtualbox This documentation shows how to configure an virtual environment for pentesting, researching and experimentation using VirtualBox, a virtualization software that allow us to simulate a real life scenario. We will have the following topology:
+Configure the VMs with the following specifications, either by downloading the ISOs or the OVF files.
+   Role OS CPU RAM Network Interfaces IP Address User Password     Gateway Ubuntu 18."/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="/posts/virtualbox/" />
+
+
+
+
+
+<link rel="stylesheet" href="/assets/style.css">
+
+
+<link rel="stylesheet" href="/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/img/favicon.png">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Setting up a Virtual Lab with Virtualbox"/>
+<meta name="twitter:description" content="Setting up a Virtual Lab with Virtualbox"/>
+
+
+
+<meta property="og:title" content="Setting up a Virtual Lab with Virtualbox" />
+<meta property="og:description" content="Setting up a Virtual Lab with Virtualbox" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/virtualbox/" />
+<meta property="article:published_time" content="2019-02-28T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-02-28T00:00:00+00:00" /><meta property="og:site_name" content="Hello Friend" />
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">hello friend</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/showcase">Showcase</a></li>
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/showcase">Showcase</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  <div class="post">
+    <h2 class="post-title"><a href="/posts/virtualbox/">Setting up a Virtual Lab with Virtualbox</a></h2>
+    <div class="post-meta">
+      
+        <span class="post-date">
+            2019-02-28
+        </span>
+      
+      <span class="post-author">— Written by Isac Cavalcante</span>
+      
+    </div>
+
+    
+
+    
+      
+        <img src="/img/arpattack.jpg" class="post-cover" />
+      
+    
+
+    <div class="post-content">
+      
+
+<h1 id="setting-up-a-virtual-lab-with-virtualbox">Setting up a Virtual Lab with Virtualbox</h1>
+
+<p>This documentation shows how to configure an virtual environment for pentesting, researching and experimentation using <a href="https://www.virtualbox.org">VirtualBox</a>, a virtualization software that allow us to simulate a real life scenario. We will have the following topology:</p>
+
+<p><img src="./topology.jpg" alt="topology" /></p>
+
+<p>Configure the VMs with the following specifications, either by downloading the ISOs or the OVF files.</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Role</th>
+<th align="center">OS</th>
+<th align="center">CPU</th>
+<th align="center">RAM</th>
+<th align="center">Network Interfaces</th>
+<th align="center">IP Address</th>
+<th align="center">User</th>
+<th align="center">Password</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center"><a href="./TODO">Gateway</a></td>
+<td align="center"><a href="http://ubuntu.c3sl.ufpr.br/releases/18.04.3/ubuntu-18.04.3-live-server-amd64.iso">Ubuntu 18.04</a></td>
+<td align="center">1</td>
+<td align="center">1GB</td>
+<td align="center">1 Host-Only, 1 NAT</td>
+<td align="center">10.0.0.<sup>1</sup>&frasl;<sub>24</sub></td>
+<td align="center">user</td>
+<td align="center">password</td>
+</tr>
+
+<tr>
+<td align="center"><a href="./TODO">Victim</a></td>
+<td align="center"><a href="https://az792536.vo.msecnd.net/vms/VMBuild_20190311/VirtualBox/MSEdge/MSEdge.Win10.VirtualBox.zip">Windows 10</a></td>
+<td align="center">1</td>
+<td align="center">2GB</td>
+<td align="center">1 Host-Only</td>
+<td align="center">10.0.0.<sup>2</sup>&frasl;<sub>24</sub></td>
+<td align="center">IE User</td>
+<td align="center">Passw0rd!</td>
+</tr>
+
+<tr>
+<td align="center"><a href="./TODO">Attacker</a></td>
+<td align="center"><a href="https://cdimage.kali.org/kali-2019.3/kali-linux-2019.3-amd64.iso">Kali 2.0</a></td>
+<td align="center">2</td>
+<td align="center">4GB</td>
+<td align="center">1 Host-Only</td>
+<td align="center">10.0.0.<sup>3</sup>&frasl;<sub>24</sub></td>
+<td align="center">root</td>
+<td align="center">toor</td>
+</tr>
+</tbody>
+</table>
+
+<p>If you are creating the environment downloading the ISOs, you need to Create a Host Only network interface to be used by all VMs. Go to the main menu, select <code>File &gt; Host Network Manager</code>, then you should see an empty white box with &ldquo;Host-Only Networks&rdquo;. Click the create button. A new Host-only network will be created and added to the list, you can now change the network adapter in you VMs to use the one you just created. For the Gateway VM, you&rsquo;ll also need to add an NAT network interface.</p>
+
+<h2 id="configuring-the-attacker">Configuring the Attacker</h2>
+
+<p>For this Kali VM we are considering the following network interface:</p>
+
+<ul>
+<li><code>eth0</code>: Host-Only (Local/internal) -&gt; 10.0.0.3</li>
+</ul>
+
+<p>In your attacker machine, go to the upper right corner in the network icon, <code>Wired Connected &gt; Wired Settings &gt; Network &gt; Wired &gt; Engine icon &gt; IPv4</code> and fill in with the following values:</p>
+
+<p><img src="./kali-network.png" alt="kali-network" /></p>
+
+<h2 id="configuring-the-victim">Configuring the Victim</h2>
+
+<p>For this Windows VM we are considering the following network interface:</p>
+
+<ul>
+<li><code>Ethernet</code>: Host-Only (Local/internal) -&gt; 10.0.0.2</li>
+</ul>
+
+<p>Click on the network icon in right lower corner, click on <code>Network &amp; Internet Settings &gt; Change your adapter options</code>, then right click in the network interface, click on <code>Properties &gt; Internet Protocol Version 4 (TCP/IPv4)</code> and fill in with the following values:</p>
+
+<p><img src="./windows-network.png" alt="windows-network" /></p>
+
+<h2 id="configuring-the-gateway">Configuring the Gateway</h2>
+
+<p>Check all the network interface connected to your VM:</p>
+
+<pre><code class="language-sh">ifconfig -a
+
+</code></pre>
+
+<p>Install the <code>ifupdown</code> tool to configure the adition network interface:</p>
+
+<pre><code class="language-sh">apt update
+apt install ifupdown
+</code></pre>
+
+<p>Edit /etc/network/interfaces with the following content:</p>
+
+<pre><code>iface inet enp0s8 inet static
+	address 10.0.0.1
+	netmask 255.255.255.0
+</code></pre>
+
+<blockquote>
+<p>Change the <code>enp0s8</code> accordingly to the output from the <code>ifconfig -a</code> command.</p>
+</blockquote>
+
+<p>Bring the interface up and running with the following command:</p>
+
+<pre><code class="language-sh">ifup enp0s8
+</code></pre>
+
+<p>For this VM we are considering the following interfaces</p>
+
+<ul>
+<li><code>enp0s3</code>: NAT (Internet/external) -&gt; 10.0.2.15*</li>
+<li><code>enp0s8</code>: Host-Only (Local/internal) 10.0.0.1</li>
+</ul>
+
+<blockquote>
+<p>*This will change accordingly to VirtuaBox</p>
+</blockquote>
+
+<p>Enable packet forwarding:</p>
+
+<pre><code class="language-sh">echo 1 &gt; /proc/sys/net/ipv4/ip_forward
+</code></pre>
+
+<p>Allow every traffic that comes through local interface to go out to the internet interface</p>
+
+<pre><code class="language-sh">iptables -A FORWARD -i enp0s8 -o enp0s3 -j ACCEPT 
+</code></pre>
+
+<p>Allow every traffic that comes through internet interface to come in to the local interface</p>
+
+<pre><code class="language-sh">iptables -A FORWARD -i enp0s3 -o enp0s8 -j ACCEPT -m state --state ESTABLISHED,RELATED 
+</code></pre>
+
+<p>Change the source IP address for the outgoing packets</p>
+
+<pre><code class="language-sh">iptables -t nat -A POSTROUTING -o enp0s3 -j MASQUERADE 
+</code></pre>
+
+<blockquote>
+<p>This will make the hosts address be the gateway address to the internet</p>
+</blockquote>
+
+<p>Ping the other hosts (Required by VirtualBox)</p>
+
+<pre><code class="language-sh">ping 10.0.0.2 -c 1
+ping 10.0.0.3 -c 1
+</code></pre>
+
+<p>This script configures all the previous commands.</p>
+
+<pre><code class="language-bash">#!/bin/bash
+# configure_gateway.sh
+# 
+
+LOCAL_IFACE=enp0s8
+EXTERNAL_IFACE=enp0s3
+GATEWAY_ADDRESS=10.0.0.1
+HOST_ADDRESSES='10.0.0.2 10.0.0.3'
+
+apt update &amp;&amp; apt install -y ifupdown 
+
+cat &lt;&lt;EOF &gt; /etc/network/interfaces
+iface $LOCAL_IFACE inet static
+	address $GATEWAY_ADDRESS
+	netmask 255.255.255.0
+EOF
+
+ifup $LOCAL_IFACE
+
+echo 1 &gt; /proc/sys/net/ipv4/ip_forward
+iptables -A FORWARD -i $LOCAL_IFACE -o $EXTERNAL_IFACE -j ACCEPT 
+iptables -A FORWARD -i $EXTERNAL_IFACE -o $LOCAL_IFACE -j ACCEPT -m state --state ESTABLISHED,RELATED 
+iptables -t nat -A POSTROUTING -o $EXTERNAL_IFACE -j MASQUERADE 
+
+
+for ADDRESS in $HOST_ADDRESSES; do
+  ping $ADDRESS -c 1
+done
+</code></pre>
+
+    </div>
+    
+
+    
+
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a href="/" class="logo" style="text-decoration: none;">
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
+</svg>
+</span>
+    <span class="logo__text">hello friend</span>
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span>© 2019 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+        <span>Hugo theme created by <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>
