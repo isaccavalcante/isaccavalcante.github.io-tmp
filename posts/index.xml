@@ -29,9 +29,9 @@ Client sends and ARP request in broadcast:</description>
       <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>/posts/virtualbox/</guid>
-      <description>Setting up a Virtual Lab with Virtualbox This documentation shows how to configure an virtual environment for pentesting, researching and experimentation using VirtualBox, a virtualization software that allow us to simulate a real life scenario. We will have the topology described above.
-Configure the VMs with the following specifications, either by downloading the ISOs or the OVF files.
-   Role OS CPU RAM Network Interfaces IP Address User Password     Gateway Ubuntu 18.</description>
+      <description>Setting up a Virtual Lab with Virtualbox This post shows how to configure an virtual environment for pentesting, researching and experimentation using VirtualBox, a virtualization software that allow us to simulate a real life scenario. We will have the topology described above.
+Configure the VMs with the following specifications by downloading the ISO files.
+ Gateway     Configuration Value     OS Ubuntu 18.04   CPU 1   RAM 1GB   Network Interfaces 1 Host-Only, 1 NAT   IP Address 10.</description>
     </item>
     
   </channel>

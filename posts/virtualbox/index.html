@@ -6,9 +6,9 @@
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="description" content="Setting up a Virtual Lab with Virtualbox This documentation shows how to configure an virtual environment for pentesting, researching and experimentation using VirtualBox, a virtualization software that allow us to simulate a real life scenario. We will have the topology described above.
-Configure the VMs with the following specifications, either by downloading the ISOs or the OVF files.
-   Role OS CPU RAM Network Interfaces IP Address User Password     Gateway Ubuntu 18."/>
+<meta name="description" content="Setting up a Virtual Lab with Virtualbox This post shows how to configure an virtual environment for pentesting, researching and experimentation using VirtualBox, a virtualization software that allow us to simulate a real life scenario. We will have the topology described above.
+Configure the VMs with the following specifications by downloading the ISO files.
+ Gateway     Configuration Value     OS Ubuntu 18.04   CPU 1   RAM 1GB   Network Interfaces 1 Host-Only, 1 NAT   IP Address 10."/>
 <meta name="keywords" content=""/>
 <meta name="robots" content="noodp"/>
 <link rel="canonical" href="/posts/virtualbox/" />
@@ -133,61 +133,161 @@ Configure the VMs with the following specifications, either by downloading the I
 
 <h1 id="setting-up-a-virtual-lab-with-virtualbox">Setting up a Virtual Lab with Virtualbox</h1>
 
-<p>This documentation shows how to configure an virtual environment for pentesting, researching and experimentation using <a href="https://www.virtualbox.org">VirtualBox</a>, a virtualization software that allow us to simulate a real life scenario. We will have the topology described above.</p>
+<p>This post shows how to configure an virtual environment for pentesting, researching and experimentation using <a href="https://www.virtualbox.org">VirtualBox</a>, a virtualization software that allow us to simulate a real life scenario. We will have the topology described above.</p>
 
-<p>Configure the VMs with the following specifications, either by downloading the ISOs or the OVF files.</p>
+<p>Configure the VMs with the following specifications by downloading the ISO files.</p>
+
+<ul>
+<li>Gateway</li>
+</ul>
 
 <table>
 <thead>
 <tr>
-<th align="center">Role</th>
-<th align="center">OS</th>
-<th align="center">CPU</th>
-<th align="center">RAM</th>
-<th align="center">Network Interfaces</th>
-<th align="center">IP Address</th>
-<th align="center">User</th>
-<th align="center">Password</th>
+<th>Configuration</th>
+<th>Value</th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
-<td align="center"><a href="./TODO">Gateway</a></td>
-<td align="center"><a href="http://ubuntu.c3sl.ufpr.br/releases/18.04.3/ubuntu-18.04.3-live-server-amd64.iso">Ubuntu 18.04</a></td>
-<td align="center">1</td>
-<td align="center">1GB</td>
-<td align="center">1 Host-Only, 1 NAT</td>
-<td align="center">10.0.0.<sup>1</sup>&frasl;<sub>24</sub></td>
-<td align="center">user</td>
-<td align="center">password</td>
+<td>OS</td>
+<td><a href="http://ubuntu.c3sl.ufpr.br/releases/18.04.3/ubuntu-18.04.3-live-server-amd64.iso">Ubuntu 18.04</a></td>
 </tr>
 
 <tr>
-<td align="center"><a href="./TODO">Victim</a></td>
-<td align="center"><a href="https://az792536.vo.msecnd.net/vms/VMBuild_20190311/VirtualBox/MSEdge/MSEdge.Win10.VirtualBox.zip">Windows 10</a></td>
-<td align="center">1</td>
-<td align="center">2GB</td>
-<td align="center">1 Host-Only</td>
-<td align="center">10.0.0.<sup>2</sup>&frasl;<sub>24</sub></td>
-<td align="center">IE User</td>
-<td align="center">Passw0rd!</td>
+<td>CPU</td>
+<td>1</td>
 </tr>
 
 <tr>
-<td align="center"><a href="./TODO">Attacker</a></td>
-<td align="center"><a href="https://cdimage.kali.org/kali-2019.3/kali-linux-2019.3-amd64.iso">Kali 2.0</a></td>
-<td align="center">2</td>
-<td align="center">4GB</td>
-<td align="center">1 Host-Only</td>
-<td align="center">10.0.0.<sup>3</sup>&frasl;<sub>24</sub></td>
-<td align="center">root</td>
-<td align="center">toor</td>
+<td>RAM</td>
+<td>1GB</td>
+</tr>
+
+<tr>
+<td>Network Interfaces</td>
+<td>1 Host-Only, 1 NAT</td>
+</tr>
+
+<tr>
+<td>IP Address</td>
+<td>10.0.0.<sup>1</sup>&frasl;<sub>24</sub></td>
+</tr>
+
+<tr>
+<td>User</td>
+<td>user</td>
+</tr>
+
+<tr>
+<td>Password</td>
+<td>password</td>
 </tr>
 </tbody>
 </table>
 
-<p>If you are creating the environment downloading the ISOs, you need to Create a Host Only network interface to be used by all VMs. Go to the main menu, select <code>File &gt; Host Network Manager</code>, then you should see an empty white box with &ldquo;Host-Only Networks&rdquo;. Click the create button. A new Host-only network will be created and added to the list, you can now change the network adapter in you VMs to use the one you just created. For the Gateway VM, you&rsquo;ll also need to add an NAT network interface.</p>
+<ul>
+<li>Victim</li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th>Configuration</th>
+<th>Value</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>OS</td>
+<td><a href="https://az792536.vo.msecnd.net/vms/VMBuild_20190311/VirtualBox/MSEdge/MSEdge.Win10.VirtualBox.zip">Windows 10</a></td>
+</tr>
+
+<tr>
+<td>CPU</td>
+<td>1</td>
+</tr>
+
+<tr>
+<td>RAM</td>
+<td>2GB</td>
+</tr>
+
+<tr>
+<td>Network Interfaces</td>
+<td>1 Host-Only</td>
+</tr>
+
+<tr>
+<td>IP Address</td>
+<td>10.0.0.<sup>2</sup>&frasl;<sub>24</sub></td>
+</tr>
+
+<tr>
+<td>User</td>
+<td>IE User</td>
+</tr>
+
+<tr>
+<td>Password</td>
+<td>Passw0rd!</td>
+</tr>
+</tbody>
+</table>
+
+<ul>
+<li>Attacker</li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th>Configuration</th>
+<th>Value</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>OS</td>
+<td><a href="https://cdimage.kali.org/kali-2019.3/kali-linux-2019.3-amd64.iso">Kali 2.0</a></td>
+</tr>
+
+<tr>
+<td>CPU</td>
+<td>2</td>
+</tr>
+
+<tr>
+<td>RAM</td>
+<td>4GB</td>
+</tr>
+
+<tr>
+<td>Network Interfaces</td>
+<td>1 Host-Only</td>
+</tr>
+
+<tr>
+<td>IP Address</td>
+<td>10.0.0.<sup>3</sup>&frasl;<sub>24</sub></td>
+</tr>
+
+<tr>
+<td>User</td>
+<td>root</td>
+</tr>
+
+<tr>
+<td>Password</td>
+<td>toor</td>
+</tr>
+</tbody>
+</table>
+
+<p>You will need to Create a Host Only network interface to be used by all VMs. Go to the main menu, select <code>File &gt; Host Network Manager</code>, then you should see an empty white box with &ldquo;Host-Only Networks&rdquo;. Click the create button. A new Host-only network will be created and added to the list, you can now change the network adapter in you VMs to use the one you just created. For the Gateway VM, you&rsquo;ll also need to add an NAT network interface.</p>
 
 <h2 id="configuring-the-attacker">Configuring the Attacker</h2>
 
