@@ -34,14 +34,5 @@ Configure the VMs with the following specifications, either by downloading the I
    Role OS CPU RAM Network Interfaces IP Address User Password     Gateway Ubuntu 18.</description>
     </item>
     
-    <item>
-      <title>Test</title>
-      <link>/posts/test/</link>
-      <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/test/</guid>
-      <description> Test </description>
-    </item>
-    
   </channel>
 </rss>
