@@ -2,11 +2,11 @@
 <html lang="en">
   <head>
     
-      <title>Setting up a Virtual Lab with Virtualbox :: Hello Friend — A simple theme for Hugo</title>
+      <title>Setting up a Virtual Lab with Virtualbox :: Isac Cavalcante — A simple theme for Hugo</title>
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="description" content="Setting up a Virtual Lab with Virtualbox This documentation shows how to configure an virtual environment for pentesting, researching and experimentation using VirtualBox, a virtualization software that allow us to simulate a real life scenario. We will have the following topology:
+<meta name="description" content="Setting up a Virtual Lab with Virtualbox This documentation shows how to configure an virtual environment for pentesting, researching and experimentation using VirtualBox, a virtualization software that allow us to simulate a real life scenario. We will have the topology described above.
 Configure the VMs with the following specifications, either by downloading the ISOs or the OVF files.
    Role OS CPU RAM Network Interfaces IP Address User Password     Gateway Ubuntu 18."/>
 <meta name="keywords" content=""/>
@@ -38,7 +38,7 @@ Configure the VMs with the following specifications, either by downloading the I
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/virtualbox/" />
 <meta property="article:published_time" content="2019-02-28T00:00:00+00:00" />
-<meta property="article:modified_time" content="2019-02-28T00:00:00+00:00" /><meta property="og:site_name" content="Hello Friend" />
+<meta property="article:modified_time" content="2019-02-28T00:00:00+00:00" /><meta property="og:site_name" content="Isac Cavalcante" />
 
 
 
@@ -56,7 +56,7 @@ Configure the VMs with the following specifications, either by downloading the I
   <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
 </svg>
 </span>
-    <span class="logo__text">hello friend</span>
+    <span class="logo__text">Isac Cavalcante</span>
     <span class="logo__cursor"></span>
   
 </a>
@@ -124,13 +124,15 @@ Configure the VMs with the following specifications, either by downloading the I
       
       <span class="post-author">— Written by Isac Cavalcante</span>
       
+        <span class="post-read-time">— 3 min read</span>
+      
     </div>
 
     
 
     
       
-        <img src="/img/arpattack.jpg" class="post-cover" />
+        <img src="/images/topology.png" class="post-cover" />
       
     
 
@@ -139,9 +141,7 @@ Configure the VMs with the following specifications, either by downloading the I
 
 <h1 id="setting-up-a-virtual-lab-with-virtualbox">Setting up a Virtual Lab with Virtualbox</h1>
 
-<p>This documentation shows how to configure an virtual environment for pentesting, researching and experimentation using <a href="https://www.virtualbox.org">VirtualBox</a>, a virtualization software that allow us to simulate a real life scenario. We will have the following topology:</p>
-
-<p><img src="./topology.jpg" alt="topology" /></p>
+<p>This documentation shows how to configure an virtual environment for pentesting, researching and experimentation using <a href="https://www.virtualbox.org">VirtualBox</a>, a virtualization software that allow us to simulate a real life scenario. We will have the topology described above.</p>
 
 <p>Configure the VMs with the following specifications, either by downloading the ISOs or the OVF files.</p>
 
@@ -207,7 +207,7 @@ Configure the VMs with the following specifications, either by downloading the I
 
 <p>In your attacker machine, go to the upper right corner in the network icon, <code>Wired Connected &gt; Wired Settings &gt; Network &gt; Wired &gt; Engine icon &gt; IPv4</code> and fill in with the following values:</p>
 
-<p><img src="./kali-network.png" alt="kali-network" /></p>
+<p><img src="/images/kali-network.png" alt="kali-network" /></p>
 
 <h2 id="configuring-the-victim">Configuring the Victim</h2>
 
@@ -219,7 +219,7 @@ Configure the VMs with the following specifications, either by downloading the I
 
 <p>Click on the network icon in right lower corner, click on <code>Network &amp; Internet Settings &gt; Change your adapter options</code>, then right click in the network interface, click on <code>Properties &gt; Internet Protocol Version 4 (TCP/IPv4)</code> and fill in with the following values:</p>
 
-<p><img src="./windows-network.png" alt="windows-network" /></p>
+<p><img src="/images/windows-network.png" alt="windows-network" /></p>
 
 <h2 id="configuring-the-gateway">Configuring the Gateway</h2>
 
@@ -333,10 +333,17 @@ done
         </div>
         <div class="pagination__buttons">
           
+            <span class="button previous">
+              <a href="/posts/arpspoof/">
+                <span class="button__icon">←</span>
+                <span class="button__text">How to perform an ARP Spoof Attack</span>
+              </a>
+            </span>
+          
           
             <span class="button next">
-              <a href="/posts/arpspoof/">
-                <span class="button__text"></span>
+              <a href="/posts/test/">
+                <span class="button__text">Test</span>
                 <span class="button__icon">→</span>
               </a>
             </span>
@@ -361,7 +368,7 @@ done
   <path fill="none" d="M15 8l14.729 14.382L15 35.367"/>
 </svg>
 </span>
-    <span class="logo__text">hello friend</span>
+    <span class="logo__text">Isac Cavalcante</span>
     <span class="logo__cursor"></span>
   
 </a>
